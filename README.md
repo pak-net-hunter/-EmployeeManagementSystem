@@ -1,43 +1,38 @@
 # Employee Management System (EMS Pro)
 ### C# · WinForms · SQLite · .NET 8 · Desktop Application
-
 ---
+## ⚡ Quick Start
 
-## ⚡ Quick Start (Roman Urdu)
-
-### Zaroori cheezein
-- **Visual Studio 2022** (Community ya upar)
+### Requirements
+- **Visual Studio 2022** (Community or higher)
 - **.NET 8 SDK** — https://dotnet.microsoft.com/download
-- VS mein **.NET Desktop Development** workload install hona chahiye
+- **.NET Desktop Development** workload must be installed in VS
 
 ### Steps
-1. `.zip` extract karein kisi folder mein
-2. `EmployeeManagementSystem.sln` ko **Visual Studio** mein open karein
-3. Pehli baar build karne par VS automatically **NuGet package** restore karta hai
-   (Microsoft.Data.Sqlite — koi server install nahi karna)
-4. **F5** dabayein ya **Run** karein
+1. Extract the `.zip` file to any folder
+2. Open `EmployeeManagementSystem.sln` in **Visual Studio**
+3. On first build, VS automatically restores the **NuGet package**
+   (Microsoft.Data.Sqlite — no server installation required)
+4. Press **F5** or click **Run**
 5. Login: `admin` / `admin@123`
 
-> **Database** app ki same folder mein `ems.db` file automatically ban jati hai.
-> Pehli baar chalane par 12 sample employees bhi automatically add ho jaate hain.
+> **Database** — an `ems.db` file is automatically created in the same folder as the app.
+> On first run, 12 sample employees are also added automatically.
 
 ---
-
 ## 🖥️ Features
 
-| Module | Kya milega |
+| Module | Description |
 |---|---|
 | **Login** | Branded two-panel login, Enter key support |
 | **Dashboard** | 4 stat cards + live GDI+ horizontal bar chart |
 | **Employees** | Add, Edit, Delete, Search, Filter by dept, CSV Export |
 | **Reports** | Department-wise summary with salary totals |
-| **Change Password** | Sidebar se accessible |
+| **Change Password** | Accessible from sidebar |
 | **Status Bar** | Live clock + status messages |
 
 ---
-
 ## 🎨 Tech Stack
-
 ```
 Language  : C# (.NET 8)
 Framework : Windows Forms (WinForms)
@@ -45,11 +40,8 @@ Database  : SQLite (file-based, zero server setup)
 DB Access : ADO.NET via Microsoft.Data.Sqlite NuGet
 Pattern   : No web API, No Entity Framework, No MVC
 ```
-
 ---
-
 ## 📁 Project Structure
-
 ```
 EmployeeManagementSystem/
 ├── Program.cs                  ← Entry point
@@ -69,9 +61,7 @@ EmployeeManagementSystem/
     ├── ReportsControl.cs       ← Department reports
     └── ChangePasswordForm.cs   ← Password change dialog
 ```
-
 ---
-
 ## 🗄️ Database Tables
 
 ### Users
@@ -79,7 +69,7 @@ EmployeeManagementSystem/
 |---|---|---|
 | Id | INTEGER | Auto PK |
 | Username | TEXT | Unique |
-| Password | TEXT | Plain text (production mein hash karein) |
+| Password | TEXT | Plain text (hash in production) |
 | Role | TEXT | Default: admin |
 
 ### Employees
@@ -92,40 +82,33 @@ EmployeeManagementSystem/
 | Address, Notes | TEXT |
 
 ---
-
-## 🔄 SQL Server par switch karna
-
-Agar aapke course mein SQL Server zaroori hai:
-
-1. `Database/schema_sqlserver.sql` apne SQL Server mein run karein
-2. `Microsoft.Data.Sqlite` NuGet ki jagah `Microsoft.Data.SqlClient` install karein
-3. `Db.cs` mein:
+## 🔄 Switching to SQL Server
+If your course requires SQL Server:
+1. Run `Database/schema_sqlserver.sql` in your SQL Server
+2. Replace `Microsoft.Data.Sqlite` NuGet with `Microsoft.Data.SqlClient`
+3. In `Db.cs`:
    - `SqliteConnection` → `SqlConnection`
    - `SqliteCommand` → `SqlCommand`
    - `ConnStr` → `"Server=(localdb)\\MSSQLLocalDB;Database=EMS_DB;Integrated Security=true"`
 
 ---
-
 ## 🐛 Common Issues
 
 **"Unable to load DLL" error**
-→ Build → Clean Solution → Rebuild Solution karein
-→ Ya Project properties mein Platform target x64 set karein
+→ Build → Clean Solution → Rebuild Solution
+→ Or set Platform target to x64 in Project properties
 
-**Login kaam nahi karta**
-→ `ems.db` delete karein, app dobara chalayein (fresh seed)
+**Login not working**
+→ Delete `ems.db` and rerun the app (fresh seed)
 
-**NuGet restore nahi hota**
+**NuGet restore failing**
 → Tools → NuGet Package Manager → Restore NuGet Packages
 
 ---
-
 ## 👤 Default Login
 ```
 Username : admin
 Password : admin@123
 ```
-
 ---
-
 *Built with ❤️ using C# WinForms — No external web API or framework used*
