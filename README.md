@@ -1,6 +1,13 @@
 # Employee Management System (EMS Pro)
 ### C# · WinForms · SQLite · .NET 8 · Desktop Application
+
 ---
+
+## 📸 Screenshots
+![Employee Management System](C:\Users\CValley\Pictures\emp2.png)
+
+---
+
 ## ⚡ Quick Start
 
 ### Requirements
